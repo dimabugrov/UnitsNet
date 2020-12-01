@@ -32,6 +32,10 @@
         {
           "Culture": "en-US",
           "Abbreviations": [ "m³/min" ]
+        },
+        {
+          "Culture": "ru-RU",
+          "Abbreviations": [ "м³/мин" ]
         }
       ]
     },
@@ -180,6 +184,10 @@
         {
           "Culture": "en-US",
           "Abbreviations": [ "L/s", "LPS" ]
+        },
+        {
+          "Culture": "ru-RU",
+          "Abbreviations": [ "л/c" ]
         }
       ]
     },
@@ -193,6 +201,10 @@
         {
           "Culture": "en-US",
           "Abbreviations": [ "L/min", "LPM" ]
+        },
+        {
+          "Culture": "ru-RU",
+          "Abbreviations": [ "л/мин" ]
         }
       ]
     },
@@ -447,6 +459,22 @@
         {
           "Culture": "en-US",
           "Abbreviations": [ "af/d" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "CubicCentimeterPerMinute",
+      "PluralName": "CubicCentimetersPerMinute",
+      "FromUnitToBaseFunc": "x/0.00000001667",
+      "FromBaseToUnitFunc": "x*0.00000001667",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "sm³/min" ]
+        },
+        {
+          "Culture": "ru-RU",
+          "Abbreviations": [ "см³/мин" ]
         }
       ]
     }

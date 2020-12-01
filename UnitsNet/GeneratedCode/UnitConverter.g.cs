@@ -1926,6 +1926,8 @@ namespace UnitsNet
             unitConverter.SetConversionFunction<VolumeFlow>(VolumeFlowUnit.CentiliterPerDay, VolumeFlow.BaseUnit, q => q.ToBaseUnit());
             unitConverter.SetConversionFunction<VolumeFlow>(VolumeFlow.BaseUnit, VolumeFlowUnit.CentiliterPerMinute, q => q.ToUnit(VolumeFlowUnit.CentiliterPerMinute));
             unitConverter.SetConversionFunction<VolumeFlow>(VolumeFlowUnit.CentiliterPerMinute, VolumeFlow.BaseUnit, q => q.ToBaseUnit());
+            unitConverter.SetConversionFunction<VolumeFlow>(VolumeFlow.BaseUnit, VolumeFlowUnit.CubicCentimeterPerMinute, q => q.ToUnit(VolumeFlowUnit.CubicCentimeterPerMinute));
+            unitConverter.SetConversionFunction<VolumeFlow>(VolumeFlowUnit.CubicCentimeterPerMinute, VolumeFlow.BaseUnit, q => q.ToBaseUnit());
             unitConverter.SetConversionFunction<VolumeFlow>(VolumeFlow.BaseUnit, VolumeFlowUnit.CubicDecimeterPerMinute, q => q.ToUnit(VolumeFlowUnit.CubicDecimeterPerMinute));
             unitConverter.SetConversionFunction<VolumeFlow>(VolumeFlowUnit.CubicDecimeterPerMinute, VolumeFlow.BaseUnit, q => q.ToBaseUnit());
             unitConverter.SetConversionFunction<VolumeFlow>(VolumeFlow.BaseUnit, VolumeFlowUnit.CubicFootPerHour, q => q.ToUnit(VolumeFlowUnit.CubicFootPerHour));

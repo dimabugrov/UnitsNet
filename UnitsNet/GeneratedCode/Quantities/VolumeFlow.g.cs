@@ -56,6 +56,7 @@ namespace UnitsNet
                     new UnitInfo<VolumeFlowUnit>(VolumeFlowUnit.AcreFootPerSecond, BaseUnits.Undefined),
                     new UnitInfo<VolumeFlowUnit>(VolumeFlowUnit.CentiliterPerDay, BaseUnits.Undefined),
                     new UnitInfo<VolumeFlowUnit>(VolumeFlowUnit.CentiliterPerMinute, BaseUnits.Undefined),
+                    new UnitInfo<VolumeFlowUnit>(VolumeFlowUnit.CubicCentimeterPerMinute, BaseUnits.Undefined),
                     new UnitInfo<VolumeFlowUnit>(VolumeFlowUnit.CubicDecimeterPerMinute, BaseUnits.Undefined),
                     new UnitInfo<VolumeFlowUnit>(VolumeFlowUnit.CubicFootPerHour, BaseUnits.Undefined),
                     new UnitInfo<VolumeFlowUnit>(VolumeFlowUnit.CubicFootPerMinute, BaseUnits.Undefined),
@@ -240,6 +241,11 @@ namespace UnitsNet
         ///     Get VolumeFlow in CentilitersPerMinute.
         /// </summary>
         public double CentilitersPerMinute => As(VolumeFlowUnit.CentiliterPerMinute);
+
+        /// <summary>
+        ///     Get VolumeFlow in CubicCentimetersPerMinute.
+        /// </summary>
+        public double CubicCentimetersPerMinute => As(VolumeFlowUnit.CubicCentimeterPerMinute);
 
         /// <summary>
         ///     Get VolumeFlow in CubicDecimetersPerMinute.
@@ -538,6 +544,15 @@ namespace UnitsNet
         {
             double value = (double) centilitersperminute;
             return new VolumeFlow(value, VolumeFlowUnit.CentiliterPerMinute);
+        }
+        /// <summary>
+        ///     Get VolumeFlow from CubicCentimetersPerMinute.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static VolumeFlow FromCubicCentimetersPerMinute(QuantityValue cubiccentimetersperminute)
+        {
+            double value = (double) cubiccentimetersperminute;
+            return new VolumeFlow(value, VolumeFlowUnit.CubicCentimeterPerMinute);
         }
         /// <summary>
         ///     Get VolumeFlow from CubicDecimetersPerMinute.
@@ -1361,6 +1376,7 @@ namespace UnitsNet
                 case VolumeFlowUnit.AcreFootPerSecond: return _value/0.000810713194;
                 case VolumeFlowUnit.CentiliterPerDay: return (_value/86400000) * 1e-2d;
                 case VolumeFlowUnit.CentiliterPerMinute: return (_value/60000.00000) * 1e-2d;
+                case VolumeFlowUnit.CubicCentimeterPerMinute: return _value/0.00000001667;
                 case VolumeFlowUnit.CubicDecimeterPerMinute: return _value/60000.00000;
                 case VolumeFlowUnit.CubicFootPerHour: return _value*7.8657907199999087346816086183876e-6;
                 case VolumeFlowUnit.CubicFootPerMinute: return _value/2118.88000326;
@@ -1435,6 +1451,7 @@ namespace UnitsNet
                 case VolumeFlowUnit.AcreFootPerSecond: return baseUnitValue*0.000810713194;
                 case VolumeFlowUnit.CentiliterPerDay: return (baseUnitValue*86400000) / 1e-2d;
                 case VolumeFlowUnit.CentiliterPerMinute: return (baseUnitValue*60000.00000) / 1e-2d;
+                case VolumeFlowUnit.CubicCentimeterPerMinute: return baseUnitValue*0.00000001667;
                 case VolumeFlowUnit.CubicDecimeterPerMinute: return baseUnitValue*60000.00000;
                 case VolumeFlowUnit.CubicFootPerHour: return baseUnitValue/7.8657907199999087346816086183876e-6;
                 case VolumeFlowUnit.CubicFootPerMinute: return baseUnitValue*2118.88000326;

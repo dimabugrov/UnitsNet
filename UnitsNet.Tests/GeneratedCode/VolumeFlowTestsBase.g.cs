@@ -40,6 +40,7 @@ namespace UnitsNet.Tests
         protected abstract double AcreFeetPerSecondInOneCubicMeterPerSecond { get; }
         protected abstract double CentilitersPerDayInOneCubicMeterPerSecond { get; }
         protected abstract double CentilitersPerMinuteInOneCubicMeterPerSecond { get; }
+        protected abstract double CubicCentimetersPerMinuteInOneCubicMeterPerSecond { get; }
         protected abstract double CubicDecimetersPerMinuteInOneCubicMeterPerSecond { get; }
         protected abstract double CubicFeetPerHourInOneCubicMeterPerSecond { get; }
         protected abstract double CubicFeetPerMinuteInOneCubicMeterPerSecond { get; }
@@ -91,6 +92,7 @@ namespace UnitsNet.Tests
         protected virtual double AcreFeetPerSecondTolerance { get { return 1e-5; } }
         protected virtual double CentilitersPerDayTolerance { get { return 1e-5; } }
         protected virtual double CentilitersPerMinuteTolerance { get { return 1e-5; } }
+        protected virtual double CubicCentimetersPerMinuteTolerance { get { return 1e-5; } }
         protected virtual double CubicDecimetersPerMinuteTolerance { get { return 1e-5; } }
         protected virtual double CubicFeetPerHourTolerance { get { return 1e-5; } }
         protected virtual double CubicFeetPerMinuteTolerance { get { return 1e-5; } }
@@ -165,6 +167,7 @@ namespace UnitsNet.Tests
             AssertEx.EqualTolerance(AcreFeetPerSecondInOneCubicMeterPerSecond, cubicmeterpersecond.AcreFeetPerSecond, AcreFeetPerSecondTolerance);
             AssertEx.EqualTolerance(CentilitersPerDayInOneCubicMeterPerSecond, cubicmeterpersecond.CentilitersPerDay, CentilitersPerDayTolerance);
             AssertEx.EqualTolerance(CentilitersPerMinuteInOneCubicMeterPerSecond, cubicmeterpersecond.CentilitersPerMinute, CentilitersPerMinuteTolerance);
+            AssertEx.EqualTolerance(CubicCentimetersPerMinuteInOneCubicMeterPerSecond, cubicmeterpersecond.CubicCentimetersPerMinute, CubicCentimetersPerMinuteTolerance);
             AssertEx.EqualTolerance(CubicDecimetersPerMinuteInOneCubicMeterPerSecond, cubicmeterpersecond.CubicDecimetersPerMinute, CubicDecimetersPerMinuteTolerance);
             AssertEx.EqualTolerance(CubicFeetPerHourInOneCubicMeterPerSecond, cubicmeterpersecond.CubicFeetPerHour, CubicFeetPerHourTolerance);
             AssertEx.EqualTolerance(CubicFeetPerMinuteInOneCubicMeterPerSecond, cubicmeterpersecond.CubicFeetPerMinute, CubicFeetPerMinuteTolerance);
@@ -219,6 +222,7 @@ namespace UnitsNet.Tests
             AssertEx.EqualTolerance(1, VolumeFlow.From(1, VolumeFlowUnit.AcreFootPerSecond).AcreFeetPerSecond, AcreFeetPerSecondTolerance);
             AssertEx.EqualTolerance(1, VolumeFlow.From(1, VolumeFlowUnit.CentiliterPerDay).CentilitersPerDay, CentilitersPerDayTolerance);
             AssertEx.EqualTolerance(1, VolumeFlow.From(1, VolumeFlowUnit.CentiliterPerMinute).CentilitersPerMinute, CentilitersPerMinuteTolerance);
+            AssertEx.EqualTolerance(1, VolumeFlow.From(1, VolumeFlowUnit.CubicCentimeterPerMinute).CubicCentimetersPerMinute, CubicCentimetersPerMinuteTolerance);
             AssertEx.EqualTolerance(1, VolumeFlow.From(1, VolumeFlowUnit.CubicDecimeterPerMinute).CubicDecimetersPerMinute, CubicDecimetersPerMinuteTolerance);
             AssertEx.EqualTolerance(1, VolumeFlow.From(1, VolumeFlowUnit.CubicFootPerHour).CubicFeetPerHour, CubicFeetPerHourTolerance);
             AssertEx.EqualTolerance(1, VolumeFlow.From(1, VolumeFlowUnit.CubicFootPerMinute).CubicFeetPerMinute, CubicFeetPerMinuteTolerance);
@@ -287,6 +291,7 @@ namespace UnitsNet.Tests
             AssertEx.EqualTolerance(AcreFeetPerSecondInOneCubicMeterPerSecond, cubicmeterpersecond.As(VolumeFlowUnit.AcreFootPerSecond), AcreFeetPerSecondTolerance);
             AssertEx.EqualTolerance(CentilitersPerDayInOneCubicMeterPerSecond, cubicmeterpersecond.As(VolumeFlowUnit.CentiliterPerDay), CentilitersPerDayTolerance);
             AssertEx.EqualTolerance(CentilitersPerMinuteInOneCubicMeterPerSecond, cubicmeterpersecond.As(VolumeFlowUnit.CentiliterPerMinute), CentilitersPerMinuteTolerance);
+            AssertEx.EqualTolerance(CubicCentimetersPerMinuteInOneCubicMeterPerSecond, cubicmeterpersecond.As(VolumeFlowUnit.CubicCentimeterPerMinute), CubicCentimetersPerMinuteTolerance);
             AssertEx.EqualTolerance(CubicDecimetersPerMinuteInOneCubicMeterPerSecond, cubicmeterpersecond.As(VolumeFlowUnit.CubicDecimeterPerMinute), CubicDecimetersPerMinuteTolerance);
             AssertEx.EqualTolerance(CubicFeetPerHourInOneCubicMeterPerSecond, cubicmeterpersecond.As(VolumeFlowUnit.CubicFootPerHour), CubicFeetPerHourTolerance);
             AssertEx.EqualTolerance(CubicFeetPerMinuteInOneCubicMeterPerSecond, cubicmeterpersecond.As(VolumeFlowUnit.CubicFootPerMinute), CubicFeetPerMinuteTolerance);
@@ -360,6 +365,10 @@ namespace UnitsNet.Tests
             var centiliterperminuteQuantity = cubicmeterpersecond.ToUnit(VolumeFlowUnit.CentiliterPerMinute);
             AssertEx.EqualTolerance(CentilitersPerMinuteInOneCubicMeterPerSecond, (double)centiliterperminuteQuantity.Value, CentilitersPerMinuteTolerance);
             Assert.Equal(VolumeFlowUnit.CentiliterPerMinute, centiliterperminuteQuantity.Unit);
+
+            var cubiccentimeterperminuteQuantity = cubicmeterpersecond.ToUnit(VolumeFlowUnit.CubicCentimeterPerMinute);
+            AssertEx.EqualTolerance(CubicCentimetersPerMinuteInOneCubicMeterPerSecond, (double)cubiccentimeterperminuteQuantity.Value, CubicCentimetersPerMinuteTolerance);
+            Assert.Equal(VolumeFlowUnit.CubicCentimeterPerMinute, cubiccentimeterperminuteQuantity.Unit);
 
             var cubicdecimeterperminuteQuantity = cubicmeterpersecond.ToUnit(VolumeFlowUnit.CubicDecimeterPerMinute);
             AssertEx.EqualTolerance(CubicDecimetersPerMinuteInOneCubicMeterPerSecond, (double)cubicdecimeterperminuteQuantity.Value, CubicDecimetersPerMinuteTolerance);
@@ -544,6 +553,7 @@ namespace UnitsNet.Tests
             AssertEx.EqualTolerance(1, VolumeFlow.FromAcreFeetPerSecond(cubicmeterpersecond.AcreFeetPerSecond).CubicMetersPerSecond, AcreFeetPerSecondTolerance);
             AssertEx.EqualTolerance(1, VolumeFlow.FromCentilitersPerDay(cubicmeterpersecond.CentilitersPerDay).CubicMetersPerSecond, CentilitersPerDayTolerance);
             AssertEx.EqualTolerance(1, VolumeFlow.FromCentilitersPerMinute(cubicmeterpersecond.CentilitersPerMinute).CubicMetersPerSecond, CentilitersPerMinuteTolerance);
+            AssertEx.EqualTolerance(1, VolumeFlow.FromCubicCentimetersPerMinute(cubicmeterpersecond.CubicCentimetersPerMinute).CubicMetersPerSecond, CubicCentimetersPerMinuteTolerance);
             AssertEx.EqualTolerance(1, VolumeFlow.FromCubicDecimetersPerMinute(cubicmeterpersecond.CubicDecimetersPerMinute).CubicMetersPerSecond, CubicDecimetersPerMinuteTolerance);
             AssertEx.EqualTolerance(1, VolumeFlow.FromCubicFeetPerHour(cubicmeterpersecond.CubicFeetPerHour).CubicMetersPerSecond, CubicFeetPerHourTolerance);
             AssertEx.EqualTolerance(1, VolumeFlow.FromCubicFeetPerMinute(cubicmeterpersecond.CubicFeetPerMinute).CubicMetersPerSecond, CubicFeetPerMinuteTolerance);
